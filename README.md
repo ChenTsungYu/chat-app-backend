@@ -1,5 +1,12 @@
-## Available Scripts
+# Chat App (Backend)
+This is the chat app backend API.
 
-In the project directory, you can run:
-
-### `npm start`
+The Server was deployed on GCP
+## Install packages
+```
+npm i
+```
+## Start Server
+```
+npm start`
+```
