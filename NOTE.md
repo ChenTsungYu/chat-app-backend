@@ -103,16 +103,68 @@ nvm install 12.18.3
 #### Installation
 [Installation guide](https://stackoverflow.com/questions/53434849/cannot-install-postgres-on-ubuntu-e-unable-to-locate-package-postgresql)
 ### Set up DB password
-```
+```sql
 sudo -u postgres psql
 \password
 \q
 ```
 ### Log in DB 
-```
+```sql
 psql  -U postgres -h localhost
 ```
-## Install Process Manager
+### Create an database
+```
+CREATE DATABASE chatapp;
+```
+### Show the database
+```sql
+\l
+```
+### Switching to the database 
+```sql
+\c chatapp;
+```
+### Create a new user
+```
+CREATE USER tom;
+```
+### Set password for the new user
+```
+\password tom;
+```
+### Grant all privileges to the new user 
+```sql
+GRANT ALL PRIVILEGES ON DATABASE chatapp TO tom;
+```
+### Log in the new user and switch to the database 
+```bash
+psql -U tom -h localhost -d chatapp;
+```
+# Deployment
+## Clone project
+```
+git clone https://github.com/ChenTsungYu/chat-app-backend.git
+cd chat-app-backend
+```
+## Create `.env`
+```
+sudo vim .env
+```
+### Past the config
+```
+APP_KEY=YourAppKey
+APP_URL=http://127.0.0.1
+APP_PORT=3000
+DB_HOST=YourDBHost
+DB_USER=YourDBUserName
+DB_PASSWORD=YourDBPassword
+DB_DATABASE=chatApp
+```
+#### save and quit
+```
+:wq!
+```
+## Install process manager
 ```
 sudo npm install pm2@latest -g
 ```

@@ -8,5 +8,5 @@ npm i
 ```
 ## Start Server
 ```
-npm start`
+npm start
 ```
