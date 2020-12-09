@@ -65,4 +65,54 @@ sequelize model:create --name ChatUser --attributes chatId:integer,userId:intege
 ```
 sequelize model:create --name Message --attributes type:string,message:text,chatId:integer,fromUserId:integer
 ```
-
+## Deploy on Google Compute Engine
+[(Medium Tutorial) Node to Google Cloud Compute Engine](https://medium.com/google-cloud/node-to-google-cloud-compute-engine-in-25-minutes-7188830d884e)
+[(YT Tutorial) Deploying NodeJS apps to a Google Cloud VM](https://www.youtube.com/watch?v=lKR596FgHsk&ab_channel=Inquiryum)
+[Ithome](https://ithelp.ithome.com.tw/articles/10197669)
+[How To Install Node.js on Google Cloud with Ubuntu 18.04 and Nginx – HTTPS](https://www.cloudbooklet.com/how-to-install-node-js-on-google-cloud-with-ubuntu-18-04-and-nginx/)
+### Spec
+- Ubuntu 18.04
+- E2-small
+## Set up Environment in cloud shell
+```
+sudo apt install update
+sudo apt install nodejs npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo apt install nginx
+```
+### Check if environment is set up
+```
+node -v
+npm -v
+```
+###  Test if Nginx installed correctly
+```
+curl localhost
+```
+### Install Node Version Manage
+[Github Repo](https://github.com/nvm-sh/nvm)
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+#### Check nvm and change the version of node
+```
+nvm ls-remote --lts
+nvm install 12.18.3
+```
+### PostgreSQL
+#### Installation
+[Installation guide](https://stackoverflow.com/questions/53434849/cannot-install-postgres-on-ubuntu-e-unable-to-locate-package-postgresql)
+### Set up DB password
+```
+sudo -u postgres psql
+\password
+\q
+```
+### Log in DB 
+```
+psql  -U postgres -h localhost
+```
+## Install Process Manager
+```
+sudo npm install pm2@latest -g
+```
