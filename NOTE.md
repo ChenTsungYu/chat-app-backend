@@ -66,10 +66,12 @@ sequelize model:create --name ChatUser --attributes chatId:integer,userId:intege
 sequelize model:create --name Message --attributes type:string,message:text,chatId:integer,fromUserId:integer
 ```
 ## Deploy on Google Compute Engine
-[(Medium Tutorial) Node to Google Cloud Compute Engine](https://medium.com/google-cloud/node-to-google-cloud-compute-engine-in-25-minutes-7188830d884e)
-[(YT Tutorial) Deploying NodeJS apps to a Google Cloud VM](https://www.youtube.com/watch?v=lKR596FgHsk&ab_channel=Inquiryum)
-[Ithome](https://ithelp.ithome.com.tw/articles/10197669)
-[How To Install Node.js on Google Cloud with Ubuntu 18.04 and Nginx – HTTPS](https://www.cloudbooklet.com/how-to-install-node-js-on-google-cloud-with-ubuntu-18-04-and-nginx/)
+- [How to set up a Node.js application for production on EC2 Ubuntu: Hands-on!](https://www.youtube.com/watch?v=l7KlkVyWemc&feature=emb_title)
+- [Setting up MERN Stack on AWS EC2](https://medium.com/@Keithweaver_/setting-up-mern-stack-on-aws-ec2-6dc599be4737)
+- [React + Node.js on AWS - How to Deploy a MERN Stack App to Amazon EC2](https://www.youtube.com/watch?v=FanoTGjkxhQ&t=644s&ab_channel=JasonWatmore)
+- [How To Set Up a Node.js Application for Production on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04)
+- [(Github repo)nodejs-production-demo](https://github.com/codingx01/nodejs-production-demo)
+
 ### Spec
 - Ubuntu 18.04
 - t3-small
