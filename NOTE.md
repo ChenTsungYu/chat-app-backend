@@ -72,11 +72,11 @@ sequelize model:create --name Message --attributes type:string,message:text,chat
 [How To Install Node.js on Google Cloud with Ubuntu 18.04 and Nginx – HTTPS](https://www.cloudbooklet.com/how-to-install-node-js-on-google-cloud-with-ubuntu-18-04-and-nginx/)
 ### Spec
 - Ubuntu 18.04
-- E2-small
+- t3-small
 ## Set up Environment in cloud shell
 ```
-sudo apt install update
-sudo apt install nodejs npm
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo apt install nginx
 ```
@@ -102,6 +102,9 @@ nvm install 12.18.3
 ### PostgreSQL
 #### Installation
 [Installation guide](https://stackoverflow.com/questions/53434849/cannot-install-postgres-on-ubuntu-e-unable-to-locate-package-postgresql)
+```
+sudo apt-get install postgresql postgresql-client
+```
 ### Set up DB password
 ```sql
 sudo -u postgres psql
@@ -153,7 +156,7 @@ sudo vim .env
 ### Past the config
 ```
 APP_KEY=YourAppKey
-APP_URL=http://127.0.0.1
+APP_URL=http://YourIP
 APP_PORT=3000
 DB_HOST=YourDBHost
 DB_USER=YourDBUserName
@@ -167,4 +170,8 @@ DB_DATABASE=chatApp
 ## Install process manager
 ```
 sudo npm install pm2@latest -g
+```
+Start your app using the process manager
+```
+pm2 start server.js
 ```
