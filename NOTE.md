@@ -79,6 +79,7 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo apt install nginx
+sudo npm install -g sequelize-cli sequelize pg express nodemon dotenv sequelize sequelize-cli pg bcrypt body-parser jsonwebtoken express-validator cors
 ```
 ### Check if environment is set up
 ```
@@ -173,5 +174,12 @@ sudo npm install pm2@latest -g
 ```
 Start your app using the process manager
 ```
-pm2 start server.js
+pm2 start app.js
+```
+## Configure Nginx
+```
+sudo vim /etc/nginx/sites-available/chatapp.conf
+sudo ln -s /etc/nginx/sites-available/chatapp.conf /etc/nginx/sites-enabled
+sudo nginx -t
+sudo systemctl restart nginx
 ```
