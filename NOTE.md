@@ -43,7 +43,6 @@ sequelize db:migrate:undo
 ```
 sequelize seed:create --name users
 ```
-建好Seeder 後，至 seeders 資料夾內修改建立好的檔案
 ### sequelize Seeder
 ```
 sequelize db:seed:all    
@@ -65,7 +64,7 @@ sequelize model:create --name ChatUser --attributes chatId:integer,userId:intege
 ```
 sequelize model:create --name Message --attributes type:string,message:text,chatId:integer,fromUserId:integer
 ```
-## Deploy on Google Compute Engine
+## Deploy on AWS EC2
 - [How to set up a Node.js application for production on EC2 Ubuntu: Hands-on!](https://www.youtube.com/watch?v=l7KlkVyWemc&feature=emb_title)
 - [Setting up MERN Stack on AWS EC2](https://medium.com/@Keithweaver_/setting-up-mern-stack-on-aws-ec2-6dc599be4737)
 - [React + Node.js on AWS - How to Deploy a MERN Stack App to Amazon EC2](https://www.youtube.com/watch?v=FanoTGjkxhQ&t=644s&ab_channel=JasonWatmore)

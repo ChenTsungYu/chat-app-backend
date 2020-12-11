@@ -1,7 +1,7 @@
 # Chat App (Backend)
 This is the chat app backend API.
 
-The Server was deployed on GCP
+The Server was deployed on AWS
 ## Install packages
 ```
 npm i
