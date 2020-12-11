@@ -71,6 +71,9 @@ sequelize model:create --name Message --attributes type:string,message:text,chat
 - [React + Node.js on AWS - How to Deploy a MERN Stack App to Amazon EC2](https://www.youtube.com/watch?v=FanoTGjkxhQ&t=644s&ab_channel=JasonWatmore)
 - [How To Set Up a Node.js Application for Production on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04)
 - [(Github repo)nodejs-production-demo](https://github.com/codingx01/nodejs-production-demo)
+- [Deploy a React/Node app on Amazon EC2: with Redis (IMDB), PostgreSQL and SSL encrypted https](https://medium.com/@wesley.coderre/deploy-a-react-node-app-with-on-amazon-ec2-with-redis-imdb-postgresql-and-ssl-encrypted-https-448fbd1624c3)
+- [Free domain in AWS](https://www.youtube.com/watch?v=xwmtbU-P4GM&feature=youtu.be)
+- [Have a question with NODEJS “CORS Errors”?](https://www.digitalocean.com/community/questions/have-a-question-with-nodejs-cors-errors)
 
 ### Spec
 - Ubuntu 18.04
