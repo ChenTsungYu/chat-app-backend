@@ -1,6 +1,5 @@
 const express = require('express');
 const config = require('./config/app');
-const router = require('./router');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -12,9 +11,14 @@ app.use(bodyParser.json());
 app.use(cors()); 
 // Access-Control-Allow-Origin: *
 app.options('*', cors());
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
  // implement cors (better case) : app.use(cors("Frontend URL")); 
 //  app.use(cors(" URL")); 
-
+const router = require('./router');
 app.use(router);
 // static file root path
 app.use(express.static(__dirname + '/public'));
