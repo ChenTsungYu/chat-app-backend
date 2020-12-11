@@ -10,10 +10,12 @@ app.use(bodyParser.json());
 // implement cors; keep it before any route
 app.use(cors()); 
 // Access-Control-Allow-Origin: *
-app.options('*', cors());
-app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+// app.options('*', cors());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Origin", "GET,HEAD,OPTIONS,POST,PUT, DELETE, PATCH");
     next();
 });
  // implement cors (better case) : app.use(cors("Frontend URL")); 
