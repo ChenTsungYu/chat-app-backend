@@ -1,7 +1,9 @@
-# Chat App (Backend)
-This is the chat app backend API.
+# Chat App API Server (Backend)
+This is the chat app API hosted on AWS. 
 
-The Server was deployed on AWS
+Click me to check [data schema](../chat-backend/images/chat-app-data-schema.png)
+
+
 ## Install packages
 ```
 npm i
