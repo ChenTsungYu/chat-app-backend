@@ -64,17 +64,8 @@ sequelize model:create --name ChatUser --attributes chatId:integer,userId:intege
 ```
 sequelize model:create --name Message --attributes type:string,message:text,chatId:integer,fromUserId:integer
 ```
-## Deploy on AWS EC2
-- [How to set up a Node.js application for production on EC2 Ubuntu: Hands-on!](https://www.youtube.com/watch?v=l7KlkVyWemc&feature=emb_title)
-- [Setting up MERN Stack on AWS EC2](https://medium.com/@Keithweaver_/setting-up-mern-stack-on-aws-ec2-6dc599be4737)
-- [React + Node.js on AWS - How to Deploy a MERN Stack App to Amazon EC2](https://www.youtube.com/watch?v=FanoTGjkxhQ&t=644s&ab_channel=JasonWatmore)
-- [How To Set Up a Node.js Application for Production on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04)
-- [(Github repo)nodejs-production-demo](https://github.com/codingx01/nodejs-production-demo)
-- [Deploy a React/Node app on Amazon EC2: with Redis (IMDB), PostgreSQL and SSL encrypted https](https://medium.com/@wesley.coderre/deploy-a-react-node-app-with-on-amazon-ec2-with-redis-imdb-postgresql-and-ssl-encrypted-https-448fbd1624c3)
-- [Free domain in AWS](https://www.youtube.com/watch?v=xwmtbU-P4GM&feature=youtu.be)
-- [Have a question with NODEJS “CORS Errors”?](https://www.digitalocean.com/community/questions/have-a-question-with-nodejs-cors-errors)
-
-### Spec
+# Deploy on AWS EC2
+## Spec
 - Ubuntu 18.04
 - t3-small
 ## Set up Environment in cloud shell
@@ -199,3 +190,52 @@ Check the status of `pm2-root`
 ```
 sudo systemctl status pm2-root
 ```
+# Config in AWS S3 & CloudFront
+## S3
+### 步驟
+1. 選擇AWS S3 服務，點擊進入目標 Bucket
+2. 點擊 **Permissions**，至頁面底部找到 **Cross-origin resource sharing (CORS)**，點擊 **Edit**
+![](./images/s3-permission.png)
+![](./images/s3-permission.png)
+3. 貼上下方設定，修改 `AllowedOrigins`成 EC2 的網域
+```json=
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE",
+            "HEAD"
+        ],
+        "AllowedOrigins": [
+            "http://YourEC2Domain"
+        ],
+        "MaxAgeSeconds": 3000
+    }
+]
+```
+4. 儲存修改
+
+## CloudFront
+1. 進入 **CloudFront console**
+2. 選擇 **Create Distribution**
+![](./images/set-distribu-1.png)
+3. 選擇 **Web**
+![](./images/set-distribu-2.png)
+4. 選擇**目標 S3 URL** 作為 **Origin Domain Name**，其餘依紅匡指示進行設定
+![](./images/set-distribu-3.png)
+5. 設定 **Cache**
+![](./images/set-distribu-4.png)
+6. 依照下圖設定 S3 Bucket log
+![](./images/set-distribu-5.png)
+7. 完成 Distribution 建立
+
+## Reference
+- [Cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html)
+- [How to set up a CloudFront distribution for Amazon S3](https://aws.amazon.com/cloudfront/getting-started/S3/)
+- [I’m using an S3 website endpoint as the origin of my CloudFront distribution. Why am I getting 403 Access Denied errors?](https://aws.amazon.com/premiumsupport/knowledge-center/s3-website-cloudfront-error-403/)
+- [Why you should (almost) never use an absolute path to your APIs again](https://www.freecodecamp.org/news/never-use-an-absolute-path-for-your-apis-again-9ee9199563be/)

@@ -1,14 +1,7 @@
 # Chat App API Server (Backend)
-This is the chat app API hosted on AWS. 
+This is the chat app API hosted on AWS EC2. 
 
-Click [me](./images/chat-app-data-schema.png) to check data schema
+Click [me](./images/chat-app-data-schema.png) to check data schema 🤓
 
-
-## Install packages
-```
-npm i
-```
-## Start Server
-```
-npm start
-```
+## Archtecture
+![](./images/chat-app-archtecture.png)
