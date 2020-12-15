@@ -4,7 +4,7 @@
 npm i --save express nodemon dotenv sequelize sequelize-cli pg bcrypt body-parser jsonwebtoken express-validator cors
 ```
 ## Configure environment variable
-![](./src/environment_variable.png)
+Check [here](.env.sample)
 
 ## Configure .sequelizerc
 create .sequelizerc
@@ -196,8 +196,7 @@ sudo systemctl status pm2-root
 1. 選擇AWS S3 服務，點擊進入目標 Bucket
 2. 點擊 **Permissions**，至頁面底部找到 **Cross-origin resource sharing (CORS)**，點擊 **Edit**
 ![](./images/s3-permission.png)
-![](./images/s3-permission.png)
-3. 貼上下方設定，修改 `AllowedOrigins`成 EC2 的網域
+1. 貼上下方設定，修改 `AllowedOrigins`成 EC2 的網域
 ```json=
 [
     {
